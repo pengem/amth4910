@@ -3,7 +3,7 @@ Tcrit = 170;
 lambda0 = 1e-4; 
 beta_TR = 0.08;
 
-dt = 6.313131313131314e-04;         % assume your simulation timestep, adjust if needed
+dt = 6.313131313131314e-04; 
 
 % temperature range
 T = 100:0.5:300;
@@ -26,7 +26,7 @@ for idx = 1:length(T)
     p_1s(idx) = 1 - exp(-lambda(idx) * 1.0);
 end
 
-% Plot hazard rate
+% plot hazard rate
 figure; 
 plot(T, lambda, 'LineWidth', 2);
 xlabel('Temperature (°C)', 'FontSize', 14);
@@ -34,7 +34,7 @@ ylabel('\lambda(T) (1/s)', 'FontSize', 14);
 title('Hazard Rate vs Temperature', 'FontSize', 16);
 grid on;
 
-% Plot probability per timestep
+% plot probability per timestep
 figure;
 plot(T, p_step, 'LineWidth', 2);
 xlabel('Temperature (°C)', 'FontSize', 14);
@@ -42,8 +42,8 @@ ylabel('P(runaway in one timestep)', 'FontSize', 14);
 title(['Runaway Probability per Timestep (dt = ' num2str(dt) ' s)'], 'FontSize', 16);
 grid on;
 
-% Plot probability per 1 second
-nameFilearrhenius = ['probper1sec'];
+% plot probability per 1 sec
+nameFilehazard = ['probper1sec'];
 fig = figure;
 plot(T, p_1s, 'LineWidth', 2);
 xlabel('Temperature (°C)', 'FontSize', 14);
@@ -51,4 +51,4 @@ ylabel('P(runaway within 1 second)', 'FontSize', 14);
 title('Runaway Probability Within 1 Second', 'FontSize', 20);
 grid on;
 
-saveas(fig,[nameFilearrhenius '.png']);
+saveas(fig,[nameFilehazard '.png']);
