@@ -9,7 +9,7 @@ firstTR = zeros(loop,1);
 
 % main loop
 for Nloop = 1:loop
-    test1210;
+    maincode;
     firstTR(Nloop) = triggertime;
 end
 
